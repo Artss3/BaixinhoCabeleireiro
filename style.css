@@ -1,0 +1,61 @@
+/* Estilos para a página da barbearia */
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 24px 16px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+header p {
+  margin: 8px 0 0;
+}
+
+section {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin: 16px auto;
+  max-width: 900px;
+  padding: 18px;
+}
+
+section h2 {
+  margin-top: 0;
+  color: #111;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+footer {
+  background-color: #222;
+  color: #eee;
+  padding: 14px 16px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  section {
+    margin: 12px;
+    padding: 14px;
+  }
+
+  header {
+    padding: 20px 12px;
+  }
+}
