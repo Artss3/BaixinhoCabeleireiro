@@ -115,6 +115,8 @@ h1 {
   /* Remove margem padrão do título */
   font-size: 2rem;
   /* Define tamanho de fonte maior para o título */
+  text-align: center;
+  /* Centraliza o título */ 
 }
 
 .tagline {
@@ -123,6 +125,9 @@ h1 {
   /* Espaçamento superior do tagline */
   font-size: 0.95rem;
   /* Tamanho levemente menor que o normal */
+  text-align: center;
+  /* Centraliza os títulos */
+
 }
 
 .dark-mode-btn {
@@ -133,7 +138,7 @@ h1 {
   /* Distância do topo */
   right: 16px;
   /* Distância da borda direita */
-  background: none;
+  background: rgba(255, 255, 255, 0.2);
   /* Remove fundo padrão do botão */
   border: none;
   /* Borda branca */
