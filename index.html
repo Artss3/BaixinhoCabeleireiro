@@ -3,44 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Baixinho Cabeleireiro</title>
+  <title>Baixinho Cabeleireiro - Barbearia em São Paulo</title>
+  <meta name="description" content="Barbearia Baixinho Cabeleireiro. Cortes de cabelo, barba e cuidados personalizados em São Paulo.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Baixinho Cabeleireiro</h1>
-    <p>Seja bem-vindo a nova fase com a atenção de sempre</p>
+  <header role="banner">
+    <button id="dark-mode-toggle" class="dark-mode-btn" aria-label="Alternar entre tema claro e escuro" title="Alternar tema">🌙</button>
+    <div class="header-content">
+      <figure class="logo" role="img" aria-label="Logo do Baixinho Cabeleireiro">
+        <img src="/assets/LogoSalão.png" alt="Logo do Baixinho Cabeleireiro">
+      </figure>
+      <hgroup>
+        <h1>Baixinho Cabeleireiro</h1>
+        <p class="tagline">Seja bem-vindo a nova fase com a atenção de sempre</p>
+      </hgroup>
+    </div>
   </header>
 
-  <section>
-    <h2>Oque ofereçemos</h2>
-    <p>Oferecemos cortes de cabelo, barba e cuidados personalizados para você se sentir confiante e elegante.</p>
-  </section>
+  <main role="main">
+    <article>
+      <section aria-labelledby="sobre-nos" role="region">
+        <h2 id="sobre-nos">O que oferecemos</h2>
+        <p>Oferecemos cortes de cabelo, barba e cuidados personalizados para você se sentir confiante e elegante.</p>
+      </section>
 
-  <section>
-    <h2>Serviços</h2>
-    <ul>
-      <li>Corte de cabelo masculino e feminino</li>
-      <li>Modelagem e retirada de barba</li>
-      <li>Sobrancelhas</li>
-      <li>Luzes, tingimento, alisamento, etc.</li>
-    </ul>
-  </section>
+      <section aria-labelledby="servicos" role="region">
+        <h2 id="servicos">Serviços</h2>
+        <ul role="list">
+          <li role="listitem">Corte de cabelo masculino e feminino</li>
+          <li role="listitem">Modelagem e retirada de barba</li>
+          <li role="listitem">Sobrancelhas</li>
+          <li role="listitem">Luzes, tingimento, alisamento, etc.</li>
+        </ul>
+      </section>
 
-  <section>
-    <h2>Localização</h2>
-    <p>Rua João Cereseini, 189 - Parque Bancário/Jd. Sinhá</p>
-    <p>Horário: Terça a sábado, das 10h às 20h</p>
-  </section>
+      <section aria-labelledby="localizacao" role="region">
+        <h2 id="localizacao">Localização</h2>
+        <address role="doc-location">
+          <strong>Endereço:</strong> Rua João Cereseini, 189 - Parque Bancário/Jd. Sinhá<br>
+          <strong>Horário:</strong> Terça a sábado, das 10h às 20h
+        </address>
+      </section>
 
-  <section>
-    <h2>Contato</h2>
-    <p>Telefone e WhatsApp: (11) 94940-0878</p>
-    <p>AGENDE SEU HORÁRIO!!</p>
-  </section>
+      <section aria-labelledby="contato" role="region">
+        <h2 id="contato">Contato</h2>
+        <address role="doc-contact">
+          <p><strong>Telefone e WhatsApp:</strong> <a href="tel:+5511949400878">(11) 94940-0878</a></p>
+          <a href="https://wa.me/5511958123665?text=Olá, gostaria de agendar um horário" class="btn-agendamento" target="_blank" rel="noopener noreferrer" aria-label="Agendar horário via WhatsApp">
+            AGENDE SEU HORÁRIO!!
+          </a>
+        </address>
+      </section>
+    </article>
+  </main>
 
-  <footer>
-    <p>© 1997 Baixinho Cabeleireiro</p>
+  <footer role="contentinfo">
+    <address>
+      <p>&copy; 1997 <strong>Baixinho Cabeleireiro</strong></p>
+      <p>Todos os direitos reservados.</p>
+    </address>
   </footer>
+
+  <script>
+    /* Script para controlar o modo escuro */
+    const darkModeToggle = document.getElementById('dark-mode-toggle'); /* Obtém o botão de dark mode */
+    const htmlElement = document.documentElement; /* Obtém o elemento html */
+    
+    /* Verifica se o usuário já tem preferência salva */
+    const savedMode = localStorage.getItem('darkMode'); /* Recupera preferência do localStorage */
+    if (savedMode === 'true') { /* Se o dark mode estava ativado */
+      htmlElement.classList.add('dark-mode'); /* Ativa o dark mode */
+      darkModeToggle.innerHTML = '<img src="/assets/sol2.png" alt="Sol">'; /* Muda ícone para sol */
+    }
+    
+    /* Adiciona evento de clique ao botão */
+    darkModeToggle.addEventListener('click', () => { /* Listener para clique do botão */
+      htmlElement.classList.toggle('dark-mode'); /* Alterna a classe dark-mode */
+      const isDarkMode = htmlElement.classList.contains('dark-mode'); /* Verifica se dark mode está ativo */
+      localStorage.setItem('darkMode', isDarkMode); /* Salva preferência no localStorage */
+      darkModeToggle.innerHTML = isDarkMode ? '<img src="/assets/sol2.png" alt="Sol">' : '<img src="/assets/lua2.png" alt="Lua">'; /* Alterna entre ícone da lua e do sol */
+    });
+  </script>
 </body>
 </html>

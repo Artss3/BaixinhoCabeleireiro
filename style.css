@@ -1,61 +1,218 @@
 /* Estilos para a página da barbearia */
 
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background-color: #f4f4f4;
-  color: #222;
-  margin: 0;
-  padding: 0;
+:root { /* Definições de variáveis e valores globais base */
+  font-family: Arial, sans-serif; /* Fonte padrão usada em todo o site */
+  color: #222; /* Cor de texto principal padrão */
+  background-color: #f4f4f4; /* Cor de fundo padrão para a página */
+  /* Cores no modo claro */
+  --color-text-primary: #222; /* Cor principal de texto modo claro */
+  --color-text-secondary: #666; /* Cor secundária de texto modo claro */
+  --color-bg-page: #f4f4f4; /* Cor de fundo da página modo claro */
+  --color-bg-header: #DAA520; /* Cor de fundo do header modo claro */
+  --color-bg-section: #fff; /* Cor de fundo das seções modo claro */
+  --color-border-section: #ddd; /* Cor da borda das seções modo claro */
+  --color-text-heading: #111; /* Cor de títulos modo claro */
 }
 
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 24px 16px;
-  text-align: center;
+html.dark-mode { /* Estilos para o modo escuro */
+  /* Cores no modo escuro */
+  --color-text-primary: #e0e0e0; /* Cor principal de texto modo escuro */
+  --color-text-secondary: #b0b0b0; /* Cor secundária de texto modo escuro */
+  --color-bg-page: #1a1a1a; /* Cor de fundo da página modo escuro */
+  --color-bg-header: #DAA520; /* Cor de fundo do header modo escuro */
+  --color-bg-section: #2a2a2a; /* Cor de fundo das seções modo escuro */
+  --color-border-section: #444; /* Cor da borda das seções modo escuro */
+  --color-text-heading: #e0e0e0; /* Cor de títulos modo escuro */
 }
 
-header h1 {
-  margin: 0;
-  font-size: 2rem;
+
+html { /* Ajusta o cálculo de box sizing para elementos */
+  box-sizing: border-box; /* Inclui borda e padding no tamanho total dos elementos */
 }
 
-header p {
-  margin: 8px 0 0;
+*,
+*::before,
+*::after { /* Aplica box sizing herdado para todos os elementos e pseudo-elementos */
+  box-sizing: inherit; /* Usa o box-sizing definido no html */
 }
 
-section {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  margin: 16px auto;
-  max-width: 900px;
-  padding: 18px;
+body { /* Estilos básicos do corpo do documento */
+  margin: 0; /* Remove margem padrão do navegador */
+  padding: 0; /* Remove padding padrão do navegador */
+  line-height: 1.6; /* Define altura de linha para melhor legibilidade */
+  background-color: var(--color-bg-page); /* Usa cor de fundo da página */
+  color: var(--color-text-primary); /* Usa cor de texto primária */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave entre temas */
 }
 
-section h2 {
-  margin-top: 0;
-  color: #111;
+header { /* Estilos do cabeçalho principal da página */
+  position: relative; /* Permite posicionar elementos filhos */
+  background-color: var(--color-bg-header); /* Cor de fundo do header */
+  color: #fff; /* Texto claro sobre fundo escuro */
+  padding: 24px 16px; /* Espaçamento interno no header */
+  transition: background-color 0.3s ease; /* Transição suave entre temas */
 }
 
-ul {
-  padding-left: 20px;
+.header-content { /* Contêiner do conteúdo do header */
+  display: flex; /* Usa flexbox para alinhar logo e hgroup */
+  align-items: center; /* Alinha itens verticalmente */
+  justify-content: center; /* Alinha itens horizontalmente */
+  gap: 24px; /* Espaço entre logo e hgroup */
+  flex-wrap: wrap; /* Permite quebra de linha em telas pequenas */
 }
 
-footer {
-  background-color: #222;
-  color: #eee;
-  padding: 14px 16px;
-  text-align: center;
+hgroup { /* Agrupa títulos relacionados */
+  text-align: center; /* Centraliza os títulos */
 }
 
-@media (max-width: 600px) {
-  section {
-    margin: 12px;
-    padding: 14px;
+h1 { /* Estilo do título principal do site */
+  margin: 0; /* Remove margem padrão do título */
+  font-size: 2rem; /* Define tamanho de fonte maior para o título */
+}
+
+.tagline { /* Estilo do subtítulo/descrição do header */
+  margin: 8px 0 0; /* Espaçamento superior do tagline */
+  font-size: 0.95rem; /* Tamanho levemente menor que o normal */
+}
+
+.dark-mode-btn { /* Estilo do botão de dark mode */
+  position: absolute; /* Posiciona o botão em relação ao header */
+  top: 16px; /* Distância do topo */
+  right: 16px; /* Distância da borda direita */
+  background: none; /* Remove fundo padrão do botão */
+  border: none; /* Borda branca */
+  color: #fff; /* Texto branco */
+  font-size: 0.9rem; /* Tamanho menor do ícone */
+  cursor: pointer; /* Mostra cursor de clique */
+  padding: 8px 12px; /* Espaçamento interno do botão */
+  border-radius: 8px; /* Cantos arredondados */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transição suave */
+}
+
+.dark-mode-btn:hover { /* Estilo ao passar o mouse sobre o botão */
+  background-color: rgba(255, 255, 255, 0.2); /* Fundo semi-transparente branco */
+  transform: scale(1); /* Aumenta o tamanho do botão */
+}
+
+.dark-mode-btn:active { /* Estilo ao clicar no botão */
+  transform: scale(0.95); /* Diminui levemente ao clicar */
+}
+
+header .logo { /* Estilo do contêiner da imagem do logo */
+  position: absolute; /* Posiciona o logo flutuante dentro do header */
+  top: 16px; /* Distância do topo do header */
+  left: 100px; /* Distância da borda esquerda do header */
+  max-width: 230px; /* Limita a largura máxima do logo */
+  margin: 0; /* Remove margens adicionais do contêiner */
+}
+
+header .logo img { /* Estilo da imagem dentro do logo */
+  display: block; /* Remove espaço em linha abaixo da imagem */
+  width: 100%; /* Faz a imagem ocupar a largura do contêiner */
+  height: auto; /* Mantém proporção original da imagem */
+  border-radius: 100%; /* Deixa a imagem circular */
+}
+
+main { /* Estilo do conteúdo principal da página */
+  display: grid; /* Usa grid para organizar seções com espaçamento uniforme */
+  gap: 16px; /* Espaçamento entre as seções */
+  margin: 24px auto; /* Centraliza o main e adiciona margem superior/inferior */
+  max-width: 900px; /* Limita a largura máxima do conteúdo */
+  padding: 0 16px; /* Espaçamento horizontal interno */
+}
+
+article { /* Estilo do contêiner de artigo principal */
+  display: contents; /* Faz o article não criar novo bloco formatado */
+}
+
+main section { /* Estilo de cada seção dentro do conteúdo principal */
+  background-color: var(--color-bg-section); /* Cor de fundo das seções */
+  border: 1px solid var(--color-border-section); /* Borda suave para separar seções */
+  padding: 18px; /* Espaçamento interno dentro de cada seção */
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Transição suave entre temas */
+}
+
+main section h2 { /* Estilo do subtítulo de cada seção */
+  margin-top: 0; /* Remove margem superior padrão */
+  color: var(--color-text-heading); /* Cor de texto dos títulos */
+  transition: color 0.3s ease; /* Transição suave entre temas */
+}
+
+main section address { /* Estilo do elemento address dentro das seções */
+  font-style: normal; /* Remove itálico padrão do address */
+  line-height: 1.8; /* Ajusta altura de linha */
+}
+
+main section address strong { /* Destaca rótulos dentro do address */
+  color: var(--color-text-primary); /* Usa cor de texto primária */
+}
+
+main section address a { /* Estilo de links dentro do address */
+  color: var(--color-text-primary); /* Usa cor de texto primária */
+  text-decoration: underline; /* Sublinha links */
+}
+
+
+
+main section ul { /* Estilos da lista de serviços */
+  padding-left: 20px; /* Adiciona recuo à lista */
+  margin: 0; /* Remove margem padrão da lista */
+}
+
+main section ul li { /* Estilo dos itens da lista */
+  margin: 8px 0; /* Espaçamento vertical entre itens */
+}
+
+.btn-agendamento { /* Estilo do botão de agendamento */
+  display: inline-block; /* Permite aplicar padding e alinhamento */
+  background-color: #25D366; /* Cor verde do WhatsApp */
+  color: #fff; /* Texto branco */
+  padding: 12px 24px; /* Espaçamento interno do botão */
+  text-decoration: none; /* Remove sublinhado padrão de links */
+  border-radius: 8px; /* Cantos arredondados */
+  font-weight: bold; /* Texto em negrito */
+  margin-top: 12px; /* Espaçamento superior do botão */
+  transition: background-color 0.3s ease; /* Animação suave ao passar o mouse */
+}
+
+.btn-agendamento:hover { /* Estilo ao passar o mouse sobre o botão */
+  background-color: #20BA61; /* Verde mais escuro ao passar o mouse */
+  cursor: pointer; /* Mostra cursor de clique */
+}
+
+footer { /* Estilo do rodapé da página */
+  background-color: #222; /* Fundo escuro no rodapé */
+  color: #eee; /* Texto claro no rodapé */
+  padding: 14px 16px; /* Espaçamento interno no rodapé */
+  text-align: center; /* Centraliza o texto do rodapé */
+}
+
+footer address { /* Estilo do address no footer */
+  font-style: normal; /* Remove itálico padrão */
+  margin: 0; /* Remove margens padrão */
+}
+
+footer p { /* Estilo de parágrafos no footer */
+  margin: 4px 0; /* Espaçamento reduzido entre parágrafos */
+}
+
+@media (max-width: 600px) { /* Estilos adaptativos para telas menores */
+  header { /* Ajuste do header para telas pequenas */
+    padding: 20px 12px; /* Reduz padding do header */
   }
 
-  header {
-    padding: 20px 12px;
+  .header-content { /* Ajuste do header content em telas pequenas */
+    gap: 12px; /* Reduz espaço entre itens */
+  }
+
+  main { /* Ajuste do main para telas menores */
+    gap: 12px; /* Reduz espaço entre seções */
+    margin: 16px auto; /* Reduz margem externa do main */
+    padding: 0 12px; /* Reduz padding horizontal do main */
+  }
+
+  main section { /* Ajuste das seções em telas pequenas */
+    padding: 14px; /* Reduz padding interno das seções */
   }
 }
+
