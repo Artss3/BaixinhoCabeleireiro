@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Baixinho Cabeleireiro - Barbearia em São Paulo</title>
-  <meta name="description" content="Barbearia Baixinho Cabeleireiro. Cortes de cabelo, barba e cuidados personalizados em São Paulo.">
+  <meta name="description"
+    content="Barbearia Baixinho Cabeleireiro. Cortes de cabelo, barba e cuidados personalizados em São Paulo.">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <header role="banner">
-    <button id="dark-mode-toggle" class="dark-mode-btn" aria-label="Alternar entre tema claro e escuro" title="Alternar tema">🌙</button>
+    <button id="dark-mode-toggle" class="dark-mode-btn" aria-label="Alternar entre tema claro e escuro"
+      title="Alternar tema">🌙</button>
     <div class="header-content">
       <figure class="logo" role="img" aria-label="Logo do Baixinho Cabeleireiro">
         <img src="/assets/LogoSalão.png" alt="Logo do Baixinho Cabeleireiro">
@@ -50,7 +54,8 @@
         <h2 id="contato">Contato</h2>
         <address role="doc-contact">
           <p><strong>Telefone e WhatsApp:</strong> <a href="tel:+5511949400878">(11) 94940-0878</a></p>
-          <a href="https://wa.me/5511958123665?text=Olá, gostaria de agendar um horário" class="btn-agendamento" target="_blank" rel="noopener noreferrer" aria-label="Agendar horário via WhatsApp">
+          <a href="https://wa.me/5511958123665?text=Olá, gostaria de agendar um horário" class="btn-agendamento"
+            target="_blank" rel="noopener noreferrer" aria-label="Agendar horário via WhatsApp">
             AGENDE SEU HORÁRIO!!
           </a>
         </address>
@@ -69,14 +74,14 @@
     /* Script para controlar o modo escuro */
     const darkModeToggle = document.getElementById('dark-mode-toggle'); /* Obtém o botão de dark mode */
     const htmlElement = document.documentElement; /* Obtém o elemento html */
-    
+
     /* Verifica se o usuário já tem preferência salva */
     const savedMode = localStorage.getItem('darkMode'); /* Recupera preferência do localStorage */
     if (savedMode === 'true') { /* Se o dark mode estava ativado */
       htmlElement.classList.add('dark-mode'); /* Ativa o dark mode */
       darkModeToggle.innerHTML = '<img src="/assets/sol2.png" alt="Sol">'; /* Muda ícone para sol */
     }
-    
+
     /* Adiciona evento de clique ao botão */
     darkModeToggle.addEventListener('click', () => { /* Listener para clique do botão */
       htmlElement.classList.toggle('dark-mode'); /* Alterna a classe dark-mode */
@@ -86,4 +91,5 @@
     });
   </script>
 </body>
+
 </html>
