@@ -13,10 +13,10 @@
 <body>
   <header role="banner">
     <button id="dark-mode-toggle" class="dark-mode-btn" aria-label="Alternar entre tema claro e escuro"
-      title="Alternar tema"><img src="/assets/lua2.png" alt="Lua"></button>
+      title="Alternar tema"><img src="./assets/lua2.png" alt="Lua"></button>
     <div class="header-content">
       <figure class="logo" role="img" aria-label="Logo do Baixinho Cabeleireiro">
-        <img src="/assets/LogoSalão.png" alt="Logo do Baixinho Cabeleireiro">
+        <img src="./assets/LogoSalão.png" alt="Logo do Baixinho Cabeleireiro">
       </figure>
       <hgroup>
         <h1>Baixinho Cabeleireiro</h1>
@@ -79,7 +79,7 @@
     const savedMode = localStorage.getItem('darkMode'); /* Recupera preferência do localStorage */
     if (savedMode === 'true') { /* Se o dark mode estava ativado */
       htmlElement.classList.add('dark-mode'); /* Ativa o dark mode */
-      darkModeToggle.innerHTML = '<img src="/assets/sol2.png" alt="Sol">'; /* Muda ícone para sol */
+      darkModeToggle.innerHTML = '<img src="./assets/sol2.png" alt="Sol">'; /* Muda ícone para sol */
     }
 
     /* Adiciona evento de clique ao botão */
@@ -87,7 +87,7 @@
       htmlElement.classList.toggle('dark-mode'); /* Alterna a classe dark-mode */
       const isDarkMode = htmlElement.classList.contains('dark-mode'); /* Verifica se dark mode está ativo */
       localStorage.setItem('darkMode', isDarkMode); /* Salva preferência no localStorage */
-      darkModeToggle.innerHTML = isDarkMode ? '<img src="/assets/sol2.png" alt="Sol">' : '<img src="/assets/lua2.png" alt="Lua">'; /* Alterna entre ícone da lua e do sol */
+      darkModeToggle.innerHTML = isDarkMode ? '<img src="./assets/sol2.png" alt="Sol">' : '<img src="./assets/lua2.png" alt="Lua">'; /* Alterna entre ícone da lua e do sol */
     });
   </script>
 </body>
